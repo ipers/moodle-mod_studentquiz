@@ -529,6 +529,7 @@ function mod_studentquiz_generate_attempt($ids, $studentquiz, $userid) {
     $attempt->studentquizid = $studentquiz->id;
 
     // Add first question to usage.
+    shuffle($ids); // Randomize questions, but an option in Setting will be more usefull...
     mod_studentquiz_add_question_to_attempt($questionusage, $studentquiz, $ids);
 
     question_engine::save_questions_usage_by_activity($questionusage);
