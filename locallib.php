@@ -529,6 +529,8 @@ function mod_studentquiz_generate_attempt($ids, $studentquiz, $userid) {
     $attempt->studentquizid = $studentquiz->id;
 
     // Add first question to usage.
+    shuffle($ids); // CPS 2023-08-04, Randomize questions...
+    // CPS 2023-08-04, May be more usefull to add an option in Setting to enable or disable randomizing questions
     mod_studentquiz_add_question_to_attempt($questionusage, $studentquiz, $ids);
 
     question_engine::save_questions_usage_by_activity($questionusage);
